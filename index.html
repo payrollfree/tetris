@@ -252,6 +252,7 @@
         <p id="start" class="desktop">
           Press Space to Play.
         </p>
+        <button id="restartButton">restart</button>
         <p><canvas id="upcoming" class="desktop"></canvas></p>
         <h3 id="scoreh3">Score: <span id="score">00000</span></h3>
         <h3 id="rows">Rows: 0</h3>
@@ -409,6 +410,7 @@
       var downArrow = document.querySelector("#downArrow");
       var rightArrow = document.querySelector("#rightArrow");
       var turnArrow = document.querySelector("#turnArrow");
+      var restartButton = document.querySelector("#restartButton"); 
       //------------------------------------------------
       // do the bit manipulation and iterate through each
       // occupied block (x,y) for a given piece
@@ -547,6 +549,11 @@
         });
         turnArrow.addEventListener("click", function () {
           rotate();
+          playing = true;
+        });
+        restartButton.addEventListener("click", function () {
+          pauseMenu.style.display = "none";
+          reset();
           playing = true;
         });
       } 
